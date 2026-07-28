@@ -1,0 +1,51 @@
+# Paper configuration for the SO100 experiments.
+# Update state_dim/action_dim and target_region.center_* for your hardware setup.
+model:
+  state_dim: 6
+  action_dim: 6
+  num_classes: 6
+  chunk_size: 50
+  max_detections: 1
+  dim_model: 512
+  n_heads: 8
+  dim_feedforward: 3200
+  n_encoder_layers: 4
+  n_decoder_layers: 1
+  n_vae_encoder_layers: 4
+  latent_dim: 32
+  dropout: 0.1
+  kl_weight: 1.0
+
+experience_tree:
+  # CHANGE_ME: pixel coordinates of the placement-container center.
+  target_region:
+    center_x: 320.0
+    center_y: 240.0
+    tolerance_x: 25.0
+    tolerance_y: 25.0
+  min_confidence: 0.30
+
+dynamic_horizon:
+  chunk_size: 50
+  confidence_threshold: 0.93
+  scaling_factor: 50.0
+  min_horizon: 1
+
+detector:
+  config: configs/detector/rtdetr_r18vd_adct.yml
+  checkpoint: weights/rtdetr_r18_adct.pth
+  device: cuda
+  input_size: 640
+  score_threshold: 0.30
+  top_k: 6
+  use_amp: true
+
+training:
+  batch_size: 16
+  learning_rate: 1.0e-5
+  weight_decay: 1.0e-4
+  epochs: 200
+  num_workers: 4
+  seed: 42
+  device: cuda
+

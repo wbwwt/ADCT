@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use ADCT, please cite the paper below."
+title: "ADCT: Action and Detection Chunking with Transformers Based on Experience Tree"
+type: software
+version: 0.1.0
+date-released: 2026-07-28
+license: Apache-2.0
+authors:
+  - family-names: Wang
+    given-names: Bo
+  - family-names: Zhan
+    given-names: Guozhi
+  - family-names: Shang
+    given-names: Jun
+  - family-names: Liu
+    given-names: Qinyuan
+preferred-citation:
+  type: article
+  title: "Action and Detection Chunking with Transformers Based on Experience Tree"
+  authors:
+    - family-names: Wang
+      given-names: Bo
+    - family-names: Zhan
+      given-names: Guozhi
+    - family-names: Shang
+      given-names: Jun
+    - family-names: Liu
+      given-names: Qinyuan
+  journal: "IEEE Robotics and Automation Letters"
+  year: 2026
+  doi: 10.1109/LRA.2026.3706944
+

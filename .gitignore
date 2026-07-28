@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Environments and editors
+.venv/
+venv/
+.idea/
+.vscode/
+.DS_Store
+
+# Experiment artifacts
+data/
+datasets/
+outputs/
+checkpoints/
+weights/
+wandb/
+logs/
+*.pth
+*.pt
+*.ckpt
+*.onnx
+*.safetensors
+src/RT_DETR/tools/results_*.jpg
+src/RT_DETR/**/__pycache__/
+
+# Keep tiny test fixtures if they are added later.
+!tests/fixtures/**/*.safetensors
+

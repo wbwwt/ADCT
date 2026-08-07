@@ -17,10 +17,18 @@ RT-DETR 的检测结果中选择当前任务目标；当检测置信度较低时
 
 https://github.com/user-attachments/assets/c1eadb46-9510-4b8f-8810-66854495fae1
 
+> [!IMPORTANT]
+> **当前开源范围：** 当前版本仅支持使用人工指定的经验树，或基于预先导出的检测语义
+> 构建经验树；论文中直接从原始示范视频自主构建经验树的完整流程尚未开源。
+
+## 方法概览
+
+![ADCT 方法主图](assets/method.png)
+
 ## 主要模块
 
-- `ExperienceTree`：从示范中提取物体类别首次进入目标区域的顺序，并在推理时只输出
-  当前优先级最高、尚未放置的物体。
+- `ExperienceTree`：从预先导出的检测结果中提取物体类别首次进入目标区域的顺序，并
+  在推理时只输出当前优先级最高、尚未放置的物体。
 - `DetectionFeatureEncoder`：分别编码类别 one-hot 特征和边界框特征，避免策略只依赖
   类别或位置中的某一种信息。
 - `ADCT`：不使用 RGB 编码器的 ACT/CVAE Transformer，输入为机器人状态和经验树筛选
@@ -122,8 +130,7 @@ episode 开始前必须调用 `runtime.reset()`。SO100 与相机接入、安全
 
 - 微调后的 RT-DETR-R18 权重；
 - 论文主模型 ADCT 权重；
-- 示范与评测数据集；
-- README 展示图或更短的预览动图。
+- 示范与评测数据集。
 
 这些文件不应直接提交到普通 Git 历史，建议使用 Hugging Face Hub、Git LFS 或
 GitHub Release。

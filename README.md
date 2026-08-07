@@ -21,20 +21,15 @@ execution horizon when detector confidence is low.
 
 https://github.com/user-attachments/assets/c1eadb46-9510-4b8f-8810-66854495fae1
 
-```mermaid
-flowchart LR
-    I[Top-view image] --> D[Frozen RT-DETR-R18]
-    D --> P[Labels, boxes, confidence]
-    P --> T[Experience tree]
-    T --> F[Target label + box]
-    S[Robot state] --> A[ADCT policy]
-    F --> A
-    A --> C[Action chunk]
-    P --> H[Confidence-aware horizon]
-    H --> E[Execute chunk prefix]
-    C --> E
-    E --> I
-```
+> [!IMPORTANT]
+> **Release scope.** The current public version supports manually specified
+> experience trees or trees built from precomputed semantic detections. The
+> complete pipeline used in the paper to construct the experience tree
+> automatically from raw demonstration videos has not yet been open-sourced.
+
+## Method overview
+
+![ADCT method overview](assets/method.png)
 
 ## Highlights
 
@@ -75,6 +70,7 @@ and all paper hyperparameters.
 
 ```text
 .
+├── assets/                  # README figures
 ├── configs/                 # Paper and detector configurations
 ├── docs/                    # Data, reproduction, and deployment guides
 ├── examples/                # Integration examples
@@ -228,7 +224,8 @@ running on hardware.
 
 ## Reproducibility status
 
-- [x] Explicit experience-tree construction and serialization
+- [x] Experience-tree serialization and construction from precomputed detections
+- [ ] End-to-end automatic experience-tree construction from raw demonstration videos
 - [x] Balanced label/box encoder
 - [x] ACT-style CVAE transformer and paper loss
 - [x] Score-driven action horizon
@@ -237,10 +234,10 @@ running on hardware.
 - [ ] Public detector and policy checkpoints
 - [ ] Public demonstration/evaluation datasets
 - [x] Supplementary demo video
-- [ ] High-resolution project figure
+- [x] High-resolution method figure
 
-The remaining unchecked items are author-hosted artifacts, not source-code
-dependencies.
+The remaining unchecked items require a future source release or author-hosted
+artifacts.
 
 ## Citation
 

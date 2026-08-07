@@ -13,6 +13,10 @@ ADCT 面向多物体分类抓取任务。它不把全局 RGB 特征直接输入�
 RT-DETR 的检测结果中选择当前任务目标；当检测置信度较低时，系统会缩短当前动作块
 的执行长度，以更早重新感知和规划。
 
+**方法与工程基础：** ADCT 建立在 [Action Chunking with Transformers
+（ACT）](https://arxiv.org/abs/2304.13705) 之上；实验代码与训练流程基于
+[Hugging Face LeRobot](https://github.com/huggingface/lerobot) 提供的 ACT 实现进行开发。
+
 ## Demo Video / 演示视频
 
 https://github.com/user-attachments/assets/c1eadb46-9510-4b8f-8810-66854495fae1
@@ -137,6 +141,9 @@ GitHub Release。
 
 ## 引用
 
+如果您使用本项目，请引用 ADCT 论文。由于本工作建立在 ACT 和 LeRobot 之上，也请
+同时引用 ACT 论文与 LeRobot 项目。
+
 ```bibtex
 @article{wang2026adct,
   title   = {Action and Detection Chunking with Transformers Based on Experience Tree},
@@ -145,8 +152,30 @@ GitHub Release。
   year    = {2026},
   doi     = {10.1109/LRA.2026.3706944}
 }
+
+@inproceedings{zhao2023learning,
+  title     = {Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware},
+  author    = {Zhao, Tony Z. and Kumar, Vikash and Levine, Sergey and Finn, Chelsea},
+  booktitle = {Robotics: Science and Systems},
+  year      = {2023}
+}
+
+@misc{cadene2024lerobot,
+  title        = {LeRobot: State-of-the-art Machine Learning for Real-World Robotics in Pytorch},
+  author       = {Cadene, Remi and Alibert, Simon and Soare, Alexander and Gallouedec, Quentin and Zouitine, Adil and Palma, Steven and Kooijmans, Pepijn and Aractingi, Michel and Shukor, Mustafa and Aubakirova, Dana and Russi, Martino and Capuano, Francesco and Pascal, Caroline and Choghari, Jade and Meftah, Khalil and Ellerbach, Maxime and Moss, Jess and Wolf, Thomas},
+  howpublished = {\url{https://github.com/huggingface/lerobot}},
+  year         = {2024}
+}
 ```
 
-本项目采用 [Apache License 2.0](LICENSE)。第三方代码来源见
+## 致谢与许可证
+
+ADCT 建立在 ACT（[论文](https://arxiv.org/abs/2304.13705)、
+[官方实现](https://github.com/tonyzhaozh/act)）之上；实验代码与公开实现使用了
+[LeRobot](https://github.com/huggingface/lerobot) 中的 ACT 策略与训练基础设施。
+检测器后端使用 [RT-DETR](https://github.com/lyuwenyu/RT-DETR) 官方实现。感谢这些
+项目的作者。
+
+本项目采用 [Apache License 2.0](LICENSE)。完整的第三方代码来源和许可证信息见
 [NOTICE](NOTICE)。
 

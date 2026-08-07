@@ -1,6 +1,11 @@
 ADCT
 Copyright 2026 Bo Wang, Guozhi Zhan, Jun Shang, and Qinyuan Liu.
 
+ADCT builds upon Action Chunking with Transformers (ACT):
+https://arxiv.org/abs/2304.13705
+https://github.com/tonyzhaozh/act
+The official ACT implementation is distributed under the MIT License.
+
 This distribution contains code adapted from Hugging Face LeRobot and its
 Action Chunking Transformer implementation:
 https://github.com/huggingface/lerobot

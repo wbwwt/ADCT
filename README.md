@@ -17,6 +17,11 @@ classification and grasping. It replaces global RGB embeddings with semantic
 detection primitives selected by an experience tree, then shortens the action
 execution horizon when detector confidence is low.
 
+**Foundation.** ADCT builds upon [Action Chunking with Transformers
+(ACT)](https://arxiv.org/abs/2304.13705). The experiments and public
+implementation were developed using the ACT implementation and training
+infrastructure from [Hugging Face LeRobot](https://github.com/huggingface/lerobot).
+
 ## Demo video
 
 https://github.com/user-attachments/assets/c1eadb46-9510-4b8f-8810-66854495fae1
@@ -39,13 +44,13 @@ https://github.com/user-attachments/assets/c1eadb46-9510-4b8f-8810-66854495fae1
   separately, balanced, and concatenated with the robot state.
 - **Confidence-aware stepping.** Implements Equation (3) from the paper:
 
-  \[
+  ```math
   S =
   \begin{cases}
-  \max(1, \lfloor K-r(1-c)\rfloor), & c<c_{\mathrm{th}}\\
+  \max(1, \lfloor K-r(1-c)\rfloor), & c<c_{\mathrm{th}},\\
   K, & c\ge c_{\mathrm{th}}.
   \end{cases}
-  \]
+  ```
 
 - **Low-data operation.** The paper reports more than 90% success with eight
   demonstrations in its low-shot setting.
@@ -241,6 +246,9 @@ artifacts.
 
 ## Citation
 
+If you use ADCT, please cite the ADCT paper. Since this work builds upon ACT
+and LeRobot, please also acknowledge their corresponding paper and repository.
+
 ```bibtex
 @article{wang2026adct,
   title   = {Action and Detection Chunking with Transformers Based on Experience Tree},
@@ -249,14 +257,32 @@ artifacts.
   year    = {2026},
   doi     = {10.1109/LRA.2026.3706944}
 }
+
+@inproceedings{zhao2023learning,
+  title     = {Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware},
+  author    = {Zhao, Tony Z. and Kumar, Vikash and Levine, Sergey and Finn, Chelsea},
+  booktitle = {Robotics: Science and Systems},
+  year      = {2023}
+}
+
+@misc{cadene2024lerobot,
+  title        = {LeRobot: State-of-the-art Machine Learning for Real-World Robotics in Pytorch},
+  author       = {Cadene, Remi and Alibert, Simon and Soare, Alexander and Gallouedec, Quentin and Zouitine, Adil and Palma, Steven and Kooijmans, Pepijn and Aractingi, Michel and Shukor, Mustafa and Aubakirova, Dana and Russi, Martino and Capuano, Francesco and Pascal, Caroline and Choghari, Jade and Meftah, Khalil and Ellerbach, Maxime and Moss, Jess and Wolf, Thomas},
+  howpublished = {\url{https://github.com/huggingface/lerobot}},
+  year         = {2024}
+}
 ```
 
 ## Acknowledgments and license
 
-The implementation builds on ideas and Apache-2.0 code from
-[LeRobot](https://github.com/huggingface/lerobot) and uses the official
-[RT-DETR](https://github.com/lyuwenyu/RT-DETR) inference implementation.
-See [NOTICE](NOTICE) for provenance details.
+ADCT builds upon ACT ([paper](https://arxiv.org/abs/2304.13705),
+[official implementation](https://github.com/tonyzhaozh/act)). The experiments
+and public implementation were developed from the ACT policy and training
+infrastructure in [LeRobot](https://github.com/huggingface/lerobot). The
+detector backend uses the official
+[RT-DETR](https://github.com/lyuwenyu/RT-DETR) inference implementation. We
+thank the authors of these projects. See [NOTICE](NOTICE) for provenance and
+license details.
 
 ADCT is released under the [Apache License 2.0](LICENSE).
 

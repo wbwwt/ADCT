@@ -47,7 +47,7 @@ https://github.com/user-attachments/assets/c1eadb46-9510-4b8f-8810-66854495fae1
   ```math
   S =
   \begin{cases}
-  \max(1, \lfloor K-r(1-c)\rfloor), & c<c_{\mathrm{th}},\\
+  \max(1, \lfloor K-r(1-c)\rfloor), & c<c_{\mathrm{th}},\\[2pt]
   K, & c\ge c_{\mathrm{th}}.
   \end{cases}
   ```

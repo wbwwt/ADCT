@@ -43,7 +43,7 @@ https://github.com/user-attachments/assets/c1eadb46-9510-4b8f-8810-66854495fae1
 - **Image-free policy input.** Class one-hot vectors and boxes are encoded
   separately, balanced, and concatenated with the robot state.
 - **Confidence-aware stepping.** Implements Equation (3) from the paper:
-  - When $c<c_{\mathrm{th}}$:
+  - When $c\lt c_{\mathrm{th}}$:
     $S=\max(1, \lfloor K-r(1-c)\rfloor)$.
   - When $c\ge c_{\mathrm{th}}$: $S=K$.
 

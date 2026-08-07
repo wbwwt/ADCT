@@ -7,9 +7,15 @@ Letters*（RA-L）接收，DOI：
 
 [English](README.md)
 
+**论文：** [IEEE Xplore](https://ieeexplore.ieee.org/document/11576545) · [DOI](https://doi.org/10.1109/LRA.2026.3706944)
+
 ADCT 面向多物体分类抓取任务。它不把全局 RGB 特征直接输入策略，而是利用经验树从
 RT-DETR 的检测结果中选择当前任务目标；当检测置信度较低时，系统会缩短当前动作块
 的执行长度，以更早重新感知和规划。
+
+## Demo Video / 演示视频
+
+https://github.com/user-attachments/assets/c1eadb46-9510-4b8f-8810-66854495fae1
 
 ## 主要模块
 
@@ -117,7 +123,7 @@ episode 开始前必须调用 `runtime.reset()`。SO100 与相机接入、安全
 - 微调后的 RT-DETR-R18 权重；
 - 论文主模型 ADCT 权重；
 - 示范与评测数据集；
-- 补充视频或 README 展示动图。
+- README 展示图或更短的预览动图。
 
 这些文件不应直接提交到普通 Git 历史，建议使用 Hugging Face Hub、Git LFS 或
 GitHub Release。

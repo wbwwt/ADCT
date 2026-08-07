@@ -10,10 +10,16 @@ Based on Experience Tree**, accepted by *IEEE Robotics and Automation Letters*
 
 [中文说明](README_zh-CN.md)
 
+**Paper:** [IEEE Xplore](https://ieeexplore.ieee.org/document/11576545) · [DOI](https://doi.org/10.1109/LRA.2026.3706944)
+
 ADCT is a lightweight imitation-learning framework for multi-object
 classification and grasping. It replaces global RGB embeddings with semantic
 detection primitives selected by an experience tree, then shortens the action
 execution horizon when detector confidence is low.
+
+## Demo video
+
+https://github.com/user-attachments/assets/c1eadb46-9510-4b8f-8810-66854495fae1
 
 ```mermaid
 flowchart LR
@@ -230,7 +236,8 @@ running on hardware.
 - [x] Training/data CLIs and unit tests
 - [ ] Public detector and policy checkpoints
 - [ ] Public demonstration/evaluation datasets
-- [ ] Supplementary videos and high-resolution project figure
+- [x] Supplementary demo video
+- [ ] High-resolution project figure
 
 The remaining unchecked items are author-hosted artifacts, not source-code
 dependencies.
